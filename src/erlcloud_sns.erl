@@ -248,7 +248,7 @@ get_endpoint_attributes(EndpointArn, AccessKeyID, SecretAccessKey) ->
 -spec set_endpoint_attributes(string(), [{sns_endpoint_attribute(), string()}]) -> string().
 set_endpoint_attributes(EndpointArn, Attributes) ->
     set_endpoint_attributes(EndpointArn, Attributes, default_config()).
--spec set_endpoint_attributes(string(), [{sns_endpoint_attribute(), string()}], aws_config()) -> string().
+-spec set_endpoint_attributes(term(), [{sns_endpoint_attribute(), string()}], aws_config()) -> string().
 set_endpoint_attributes(EndpointArn, Attributes, Config) ->
     Doc = sns_xml_request(Config, "SetEndpointAttributes", [{"EndpointArn", EndpointArn} |
                                                             encode_attributes(Attributes)]),
