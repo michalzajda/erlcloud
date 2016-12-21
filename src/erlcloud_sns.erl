@@ -227,7 +227,7 @@ delete_topic(TopicArn, Config)
 get_endpoint_attributes(EndpointArn) ->
     get_endpoint_attributes(EndpointArn, default_config()).
 
--spec get_endpoint_attributes(string(), aws_config()) -> sns_endpoint().
+-spec get_endpoint_attributes(term(), aws_config()) -> sns_endpoint().
 get_endpoint_attributes(EndpointArn, Config) ->
     Params = [{"EndpointArn", EndpointArn}],
     Doc = sns_xml_request(Config, "GetEndpointAttributes", Params),
